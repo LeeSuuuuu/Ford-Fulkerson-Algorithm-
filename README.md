@@ -3,7 +3,7 @@
 
 
 ## 포드-폴커스 알고리즘(Ford Fulkerson Algorithm)이란?
-- - -
+
 포드-폴커슨 알고리즘은 네트워크 또는 그래프에서 가능한 최대 흐름을 계산하기 위한 접근법이다.   
 그래프에서 두 꼭짓점 소스(s)와 싱크(t)가 주어지면 다음과 같은 조건을 가진 st에서 가능한 최대 흐름을 구한다.
 > 첫째, 가장자리의 흐름은 지정된 가장자리 용량을 초과하지 않는다.   
@@ -11,7 +11,7 @@
 
 
 ## 코드 동작 방식
-- - -
+
 1. 모든 간선의 흐름을 0으로 초기화한다.
 2. 소스와 싱크 사이에 결로가 있는 동안 이 경로에 흐름을 추간한다.
 3. 잔차 그래프를 업데이트 한다.
@@ -28,8 +28,8 @@
 
 
 ## Ford Fulkerson Algorithm Code
-* * *
-필요한 변수 및 큐
+
+1 필요한 변수 및 큐
 ```c
 #define WHITE 0
 #define GRAY 1
@@ -63,7 +63,7 @@ int dequeue() {
     return x;
 }
 ```
-폭 우선 탐색(BFS) 사용
+2 폭 우선 탐색(BFS) 사용
 ```c
 // BFS를 검색 알고리즘으로 사용
 int bfs(int start, int target) {
@@ -90,7 +90,7 @@ int bfs(int start, int target) {
     return color[target] == BLACK;
 }
 ```
-포드-폴커스 알고리즘
+3 포드-폴커스 알고리즘
 ```c
 //ford fulkerson 알고리즘 적용
 int max_flow(int source, int sink) {
@@ -124,7 +124,7 @@ int max_flow(int source, int sink) {
     return max_flow;
 }
 ```
-파일 입출력 함수 및 main 함수
+4 파일 입출력 함수 및 main 함수
 ```c
 void read_input_file() {
     int a, b, c, i, j;
@@ -160,7 +160,7 @@ int main() {
 }
 ```
 #### 실험 결과
-- - -
+
  1. data.txt 실행   
 ![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data.png)
 ![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20graph.jpg)
@@ -172,7 +172,7 @@ int main() {
 ![실행결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
 ## 성능
-- - -    
+   
  * 시간 복잡성   
   증강 경로가 있는 동안 루프를 실행한다. 최악의 경우 반복할 때마다 단위 흐름을 1개 추가할 수 있다.   
     따라서 시간 복잡도는 O(max_flow * E)가 됩니다.
