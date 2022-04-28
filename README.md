@@ -2,33 +2,41 @@
 202101624 이수빈
 
 
-포드-폴커스 알고리즘(Ford Fulkerson Algorithm)이란?
+## 포드-폴커스 알고리즘(Ford Fulkerson Algorithm)이란?
 - - -
+포드-폴커슨 알고리즘은 네트워크 또는 그래프에서 가능한 최대 흐름을 계산하기 위한 접근법이다.   
+그래프에서 두 꼭짓점 소스(s)와 싱크(t)가 주어지면 다음과 같은 조건을 가진 st에서 가능한 최대 흐름을 구한다.
+> 첫째, 가장자리의 흐름은 지정된 가장자리 용량을 초과하지 않는다.   
+둘째, 들어오는 흐름은 s와 t를 제외한 모든 정점에 대한 나가는 흐름과 같다.
 
 
-
-
-코드 동작 방식
+## 코드 동작 방식
 - - -
-
+1. 모든 간선의 흐름을 0으로 초기화한다.
+2. 소스와 싱크 사이에 결로가 있는 동안 이 경로에 흐름을 추간한다.
+3. 잔차 그래프를 업데이트 한다.
+* 잔차 그래프란?
+추가 가능한 흐름이 있는 흐름 네트워크를 의미한다.
+* 흐름 네트워크란? 각각의 간선에 정해진 용량보다 작은 흐름이 주어진 방향 그래프를 의미한다.
 
 
 Ford Fulkerson Algorithm Code
 * * *
 ```c
-#include <stdio.h>
 
 
 ```
 
 > 해당 코드는 사이트의 코드를 기반으로 약간의 변화를 준 것이다. 
-[이 사이트 참고](https://sahebg.github.io/computersceince/Maximux-flow-ford-fulkarson-algorithm-c-program-example/)
+[이 사이트 참고](https://www.programiz.com/dsa/ford-fulkerson-algorithm)
 
 
-> 실행 결과
+> 실행 결과   
 
+!()[]
 
-> 성능 분석
+> 성능 분석   
+
 
 
 
