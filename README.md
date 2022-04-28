@@ -29,7 +29,7 @@
 
 ## Ford Fulkerson Algorithm Code
 
-1 필요한 변수 및 큐
+1) 필요한 변수 및 큐
 ```c
 #define WHITE 0
 #define GRAY 1
@@ -63,7 +63,7 @@ int dequeue() {
     return x;
 }
 ```
-2 폭 우선 탐색(BFS) 사용
+2) 폭 우선 탐색(BFS)
 ```c
 // BFS를 검색 알고리즘으로 사용
 int bfs(int start, int target) {
@@ -90,7 +90,7 @@ int bfs(int start, int target) {
     return color[target] == BLACK;
 }
 ```
-3 포드-폴커스 알고리즘
+3) 포드-폴커스 알고리즘
 ```c
 //ford fulkerson 알고리즘 적용
 int max_flow(int source, int sink) {
@@ -124,7 +124,7 @@ int max_flow(int source, int sink) {
     return max_flow;
 }
 ```
-4 파일 입출력 함수 및 main 함수
+4)  파일 입출력 함수 및 main 함수
 ```c
 void read_input_file() {
     int a, b, c, i, j;
@@ -162,19 +162,19 @@ int main() {
 #### 실험 결과
 
  1. data.txt 실행   
- * data 텍스트
+ * data 텍스트   
 ![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data.png)
-* data 그래프
+* data 그래프   
 ![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20graph.jpg)
-* data 실행 결과
+* data 실행 결과   
 ![실행 결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
 2. data1.txt 실행 결과  
-* data1 텍스트 
+* data1 텍스트    
 ![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1.png)
-* data1 그래프
+* data1 그래프   
 ![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20graph.jpg)
-* data1 실행 결과
+* data1 실행 결과   
 ![실행결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
 ## 성능
