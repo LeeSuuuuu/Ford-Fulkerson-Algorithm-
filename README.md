@@ -162,13 +162,19 @@ int main() {
 #### 실험 결과
 
  1. data.txt 실행   
+ * data 텍스트
 ![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data.png)
+* data 그래프
 ![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20graph.jpg)
+* data 실행 결과
 ![실행 결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
-2. data1.txt 실행 결과   
+2. data1.txt 실행 결과  
+* data1 텍스트 
 ![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1.png)
+* data1 그래프
 ![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20graph.jpg)
+* data1 실행 결과
 ![실행결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
 ## 성능
