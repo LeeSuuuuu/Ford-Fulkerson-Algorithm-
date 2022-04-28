@@ -1,5 +1,5 @@
 # Ford Fulkerson Algorithm
-202101624 이수빈
+정보통신공학과 202101624 이수빈
 
 
 ## 포드-폴커스 알고리즘(Ford Fulkerson Algorithm)이란?
@@ -19,12 +19,18 @@
 추가 가능한 흐름이 있는 흐름 네트워크를 의미한다.
 * 흐름 네트워크란? 각각의 간선에 정해진 용량보다 작은 흐름이 주어진 방향 그래프를 의미한다.
 
+> 세부사항  
+ 초기에는 흐름이 없고 초기 잔존 용량이 원래 용량과 동일하므로 잔차 그래프를 원래 그래프로 초기화한다.   
+ BFS를 사용하면 소스(s)에서 싱크(t)까지의 거리를 경로의 유무를 알 수 있다. 그래서 DFS보다 BFS를 더 많이 사용한다.   
+ 잔차 그래프의 두 꼭짓점 사이에 모서리가 없는 경우 잔차 용량은 0이다.   
+ BFS가 구축하는 배열을 사용하여 발견된 경로와 통과한 경로를 따라 최소 잔류 용량을 찾아 가능한 흐름을 찾는다.
+ 나중에 발견된 경로 흐름은 전체 흐름에 추가한다.
 
-Ford Fulkerson Algorithm Code
+
+## Ford Fulkerson Algorithm Code
 * * *
+필요한 변수 및 큐
 ```c
-#include <stdio.h>
-
 #define WHITE 0
 #define GRAY 1
 #define BLACK 2
@@ -35,7 +41,7 @@ int n;  // 노드(node) 수
 int e;  // 간선(edge) 수
 int capacity[MAX_NODES][MAX_NODES]; // 용량 행렬
 int flow[MAX_NODES][MAX_NODES];     // 흐름 행렬
-int color[MAX_NODES]; // 폭 우선 탐색에 필요              
+int color[MAX_NODES]; // 폭 우선 탐색(BFS)에 필요              
 int pred[MAX_NODES];  // 확장 경로를 저장하는 배열
 
 int min(int x, int y) {
@@ -56,7 +62,9 @@ int dequeue() {
     color[x] = BLACK;
     return x;
 }
-
+```
+폭 우선 탐색(BFS) 사용
+```c
 // BFS를 검색 알고리즘으로 사용
 int bfs(int start, int target) {
     int u, v;
@@ -69,7 +77,7 @@ int bfs(int start, int target) {
     while (head != tail) {
         u = dequeue();
         // 용량인 경우 인저반 모든 흰색 노드v 검색
-        // u에서 v까지 양수이고, v 제거
+        // u에서 v까지 양수이고, v 입력
         for (v = 0; v < n; v++) {
             if (color[v] == WHITE && capacity[u][v] - flow[u][v] > 0) {
                 enqueue(v);
@@ -81,7 +89,9 @@ int bfs(int start, int target) {
     // 대상 노드의 색상이 지금 검은색이면, 도달했다는 것을 의미한다.
     return color[target] == BLACK;
 }
-
+```
+포드-폴커스 알고리즘
+```c
 //ford fulkerson 알고리즘 적용
 int max_flow(int source, int sink) {
     int i, j, u;
@@ -113,10 +123,12 @@ int max_flow(int source, int sink) {
     // 증가 경로 없음. 끝
     return max_flow;
 }
-
+```
+파일 입출력 함수 및 main 함수
+```c
 void read_input_file() {
     int a, b, c, i, j;
-    FILE* input = fopen("data1.txt", "r");
+    FILE* input = fopen("data.txt", "r");
 
     // 노드와 간선 수 읽기
     fscanf(input, "%d %d", &n, &e);
@@ -140,25 +152,31 @@ void read_input_file() {
 
 int main() {
     read_input_file();
-    printf("\n소스(s)와 싱크(t)를 입력하시오 : ");
+    printf("\n소스(s)와 싱크(t)를 입력하시오 :\n");
     int s = 0, t = n - 1;
     scanf("%d %d", &s, &t);
     printf("\n최대 흐름 : %d\n", max_flow(s, t));
     return 0;
 }
 ```
+#### 실험 결과
+- - -
+ 1. data.txt 실행   
+![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data.png)
+![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20graph.jpg)
+![실행 결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
-> 해당 코드는 사이트의 코드를 기반으로 약간의 변화를 준 것이다. 
-[이 사이트 참고](https://www.programiz.com/dsa/ford-fulkerson-algorithm)
+2. data1.txt 실행 결과   
+![txt](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1.png)
+![graph](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20graph.jpg)
+![실행결과](https://github.com/LeeSuuuuu/Ford-Fulkerson-Algorithm-/blob/bafe4f2c5d17d17690abbb386d391846200781e9/%EC%9D%B4%EB%AF%B8%EC%A7%80/data1%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.png)
 
-> 실행 결과
-
-> 성능 분석   
-
+## 성능
+- - -    
  * 시간 복잡성   
-   상기 알고리즘의 시간 복잡도는 O(max_flow * E)이다. 우리는 증강 경로가 있는 동안 루프를 실행합니다. 최악의 경우 반복할 때마다 단위 흐름을 1개 추가할 수 있습니다. 따라서 시간 복잡도는 O(max_flow * E)가 됩니다.
-
-* 
+  증강 경로가 있는 동안 루프를 실행한다. 최악의 경우 반복할 때마다 단위 흐름을 1개 추가할 수 있다.   
+    따라서 시간 복잡도는 O(max_flow * E)가 됩니다.
+* data1.txt의 중복되는 경로가 data.txt보다 적으므로 data1.txt의 시간 복잡도가 더 작다.
 
 
 

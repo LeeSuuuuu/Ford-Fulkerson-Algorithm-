@@ -10,7 +10,7 @@ int n;  // 노드(node) 수
 int e;  // 간선(edge) 수
 int capacity[MAX_NODES][MAX_NODES]; // 용량 행렬
 int flow[MAX_NODES][MAX_NODES];     // 흐름 행렬
-int color[MAX_NODES]; // 폭 우선 탐색에 필요              
+int color[MAX_NODES]; // 폭 우선 탐색(BFS)에 필요              
 int pred[MAX_NODES];  // 확장 경로를 저장하는 배열
 
 int min(int x, int y) {
